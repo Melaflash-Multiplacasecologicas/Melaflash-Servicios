@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="MelaFlash - Multipacas Ecológicas E.I.R.L. Venta de melamina, corte y canteado profesional en Villa El Salvador." name="description"/>
+<title>MelaFlash | Soluciones en Melamina</title>
+<style>
+:root{--o:#f47b20;--o2:#ff9a3d;--ink:#0b0d0f;--ink2:#11161a;--muted:#9ba3a8;--line:rgba(255,255,255,.09);--green:#25D366;--shadow:0 24px 70px rgba(0,0,0,.35)}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;background:#090b0d}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;background:linear-gradient(120deg,rgba(244,123,32,.025),transparent 35%,rgba(37,211,102,.018));mix-blend-mode:screen}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 rgba(244,123,32,0)}50%{box-shadow:0 0 34px rgba(244,123,32,.18)}}
+@keyframes shimmer{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero:after{content:"";position:absolute;width:520px;height:520px;right:-180px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(244,123,32,.20),transparent 65%);filter:blur(8px);z-index:-1;animation:float 7s ease-in-out infinite}
+.hero .container>*{animation:rise .8s both}
+.hero .container>*:nth-child(2){animation-delay:.1s}.hero .container>*:nth-child(3){animation-delay:.2s}.hero .container>*:nth-child(4){animation-delay:.3s}
+.btn,.navbtn{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.btn:after,.navbtn:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.18),transparent 80%);transform:translateX(-120%);transition:transform .55s ease}
+.btn:hover:after,.navbtn:hover:after{transform:translateX(120%)}
+.btn:hover,.navbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.22)}
+.card,.q,.step,.service,.contact-box,.photo{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.card:hover,.q:hover,.step:hover,.service:hover,.contact-box:hover,.photo:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:rgba(244,123,32,.28)!important}
+.card img,.photo img{transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .4s ease}
+.card:hover img,.photo:hover img{transform:scale(1.035);filter:saturate(1.06)}
+.section{position:relative}
+.section .head{animation:rise .7s both}
+.section.alt:before{content:"";position:absolute;left:50%;top:0;width:50vw;height:1px;background:linear-gradient(90deg,transparent,rgba(244,123,32,.4),transparent);transform:translateX(-50%)}
+.service{position:relative}
+.service:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--o);transform:scaleY(0);transition:transform .3s ease;transform-origin:center}
+.service:hover:before{transform:scaleY(1)}
+#cotiza-panel{max-height:0;overflow:hidden;opacity:0;transition:max-height .65s cubic-bezier(.2,.8,.2,1),opacity .35s ease,margin .35s ease;margin-top:0}
+#cotiza-panel.open{max-height:1000px;opacity:1;margin-top:24px}
+.quote-shell{background:linear-gradient(145deg,#14191d,#0e1215);border:1px solid rgba(244,123,32,.24);border-radius:24px;padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.quote-shell:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.035),transparent 65%);transform:translateX(-120%);animation:shimmer 8s infinite}
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;z-index:1}
+.quote-field{display:flex;flex-direction:column;gap:7px}.quote-field.full{grid-column:1/-1}
+.quote-field label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#aeb6ba;font-weight:700}
+.quote-field input,.quote-field textarea{width:100%;box-sizing:border-box;background:#090d10;color:#fff;border:1px solid rgba(255,255,255,.11);border-radius:13px;padding:13px 14px;outline:none;transition:border-color .25s,box-shadow .25s}
+.quote-field input:focus,.quote-field textarea:focus{border-color:rgba(244,123,32,.7);box-shadow:0 0 0 4px rgba(244,123,32,.08)}
+.quote-field textarea{min-height:105px;resize:vertical}
+.file-drop{border:1px dashed rgba(255,255,255,.22);border-radius:15px;padding:18px;background:rgba(255,255,255,.025);cursor:pointer;transition:.25s}
+.file-drop:hover{border-color:var(--o);background:rgba(244,123,32,.045)}
+.file-drop input{display:none}.file-name{font-size:12px;color:#9fa7ab;margin-top:7px}
+.quote-actions{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}.quote-note{font-size:12px;color:#858e93;line-height:1.5}
+.quote-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer}.quote-toggle .chev{transition:transform .35s}.quote-toggle.active .chev{transform:rotate(180deg)}
+.whatsapp-float{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:white;z-index:9997;box-shadow:0 12px 32px rgba(0,0,0,.3);animation:float 4s ease-in-out infinite,glow 4s ease-in-out infinite;text-decoration:none;font-size:25px}
+.whatsapp-float:hover{transform:scale(1.08)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:700px){.quote-grid{grid-template-columns:1fr}.quote-field.full{grid-column:auto}.quote-shell{padding:20px}.whatsapp-float{right:14px;bottom:14px;width:54px;height:54px}.navbtn{font-size:12px!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+<style></style></head>
+<body>
+<div class="top"><div class="container"><span>MELAFLASH · MULTIPACAS ECOLÓGICAS E.I.R.L.</span><span>Villa El Salvador · Lima</span></div></div>
+<header class="header"><div class="container nav">
+<a href="#inicio"><img alt="MelaFlash" class="logo" src="logo.png"/></a>
+<nav>
+<a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#productos">Productos</a><a href="#marcas">Marcas</a><a href="#contacto">Contacto</a><a href="#empleo">Trabajo</a>
+<a class="navbtn" href="https://wa.me/51913499678?text=Hola%20MelaFlash,%20quiero%20cotizar." rel="noopener" target="_blank">WhatsApp · 913 499 678</a>
+</nav><div class="menu">☰</div></div></header>
+<section class="hero" id="inicio"><div class="container">
+<div><div class="kicker"><i></i>Corte · Diseño · Calidad</div>
+<h1>Soluciones en <span>melamina</span></h1>
+<p>Venta de planchas, corte de precisión y canteado profesional. Una propuesta integral para tus proyectos de mobiliario y carpintería.</p>
+<div class="actions"><a class="btn primary wa-btn" href="https://wa.me/51913499678?text=Hola%20MelaFlash,%20quiero%20cotizar." rel="noopener" target="_blank">WhatsApp · 913 499 678</a><a class="btn outline" href="#contacto">Visítanos</a></div></div>
+<div class="hero-box"><div class="mini">MelaFlash</div><h2>Calidad que se ve, experiencia que respalda.</h2>
+<div class="hero-item"><span class="tick">✓</span><span><b>Maquinaria de alta precisión</b><br/>Trabajo orientado a cortes profesionales.</span></div>
+<div class="hero-item"><span class="tick">✓</span><span><b>Acabados profesionales</b><br/>Detalle en cada pieza.</span></div>
+<div class="hero-item"><span class="tick">✓</span><span><b>Personal calificado</b><br/>Asesoría y atención personalizada.</span></div>
+<div class="hero-item"><span class="tick">✓</span><span><b>Cumplimiento y garantía</b><br/>Compromiso con el servicio.</span></div></div>
+</div></section>
+<section class="section alt" id="productos"><div class="container split">
+<div class="photo"><img alt="Planchas de melamina MelaFlash" loading="lazy" src="melamina.png"/></div>
+<div class="copy"><h2>Vendemos nuestra propia <span style="color:var(--o)">melamina</span></h2><div class="rule" style="margin-left:0"></div>
+<p>Manejamos nuestros propios productos y ofrecemos planchas de melamina y planchas ecológicas con precios cómodos.</p>
+<div class="price">S/ 155<small>desde · consultar colores y disponibilidad</small></div>
+<div class="chips"><span class="chip">Planchas de melamina</span><span class="chip">Planchas ecológicas</span><span class="chip">Venta directa</span></div>
+<a class="btn primary wa-btn" href="https://wa.me/51913499678?text=Hola%20MelaFlash,%20quiero%20consultar%20por%20melamina%20desde%20S%2F%20155." rel="noopener" target="_blank">Consultar producto</a></div>
+</div></section>
+<section class="section" id="servicios"><div class="container"><div class="head"><h2>Nuestros servicios</h2><div class="rule"></div><p>Soluciones especializadas para que recibas piezas listas para continuar tu proyecto.</p></div>
+<div class="cards">
+<article class="card"><img alt="Corte de melamina" loading="lazy" src="corte.png"/><div class="body"><h3>Corte profesional</h3><p>Corte limpio, preciso y con enfoque en reducir astillado.</p></div></article>
+<article class="card"><img alt="Canteado profesional" loading="lazy" src="canteo.png"/><div class="body"><h3>Canteado profesional</h3><p>Acabados uniformes para una presentación limpia y resistente.</p></div></article>
+<article class="card"><img alt="Atención A1 y personalizada" loading="lazy" src="oficina.png"/><div class="body"><h3>Atención A1</h3><p>Asesoría personalizada y atención rápida y eficiente.</p></div></article>
+<article class="card"><img alt="Venta de planchas" loading="lazy" src="melamina.png"/><div class="body"><h3>Venta de planchas</h3><p>Melamina y opciones ecológicas para distintos proyectos.</p></div></article>
+</div></div></section>
+<section class="section dark"><div class="container"><div class="head"><h2>Más soluciones en melamina</h2><div class="rule"></div><p>Un servicio integral para muebles y trabajos de carpintería.</p></div>
+<div class="service-grid">
+<div class="service"><span>◆</span>Corte de melamina</div><div class="service"><span>◆</span>Tapacanto profesional</div><div class="service"><span>◆</span>Venta de tapacanto</div><div class="service"><span>◆</span>Venta de planchas</div>
+<div class="service"><span>◆</span>Amarre de pasadores</div><div class="service"><span>◆</span>Armado de muebles</div><div class="service"><span>◆</span>Despiece y diseño</div><div class="service"><span>◆</span>Cambios y reparaciones</div>
+<div class="service"><span>◆</span>Todo tipo de servicios en melamina</div><div class="service"><span>◆</span>Trabajamos con todas las marcas</div>
+</div></div></section>
+<section class="section" id="nosotros"><div class="container"><div class="head"><h2>Por qué trabajar con MelaFlash</h2><div class="rule"></div><p>La propuesta de MelaFlash combina proceso, maquinaria y atención para cada pedido.</p></div>
+<div class="quality">
+<div class="q"><div class="ic">⚙</div><h3>Maquinaria de alta precisión</h3><p>Procesos orientados a cortes profesionales.</p></div>
+<div class="q"><div class="ic">▱</div><h3>Acabados profesionales</h3><p>Detalle y cuidado en cada pieza.</p></div>
+<div class="q"><div class="ic">★</div><h3>Personal calificado</h3><p>Atención y trabajo profesional.</p></div>
+<div class="q"><div class="ic">✓</div><h3>Cumplimiento y garantía</h3><p>Compromiso con el servicio.</p></div>
+</div></div></section>
+<section class="section alt" id="proceso"><div class="container"><div class="head"><h2>Cómo trabajamos</h2><div class="rule"></div><p>Un proceso claro desde la cotización hasta la entrega.</p></div>
+<div class="steps">
+<div class="step"><div class="n">01</div><h3>Nos contactas</h3><p>Envías medidas y requerimientos.</p></div>
+<div class="step"><div class="n">02</div><h3>Cotizamos</h3><p>Revisamos tu pedido y te damos una propuesta.</p></div>
+<div class="step"><div class="n">03</div><h3>Producimos</h3><p>Realizamos corte y canteado.</p></div>
+<div class="step"><div class="n">04</div><h3>Entregamos</h3><p>Coordinamos recojo o entrega.</p></div>
+</div></div></section>
+<section class="section brands" id="marcas"><div class="container"><div class="head"><h2>Marcas que trabajamos</h2><div class="rule"></div><p>Consulta disponibilidad de materiales y productos.</p></div>
+<img alt="Marcas con las que trabaja MelaFlash" loading="lazy" src="servicios.jpg"/></div></section>
+<section class="section dark"><div class="container"><div class="head"><h2>Atención A1 y personalizada</h2><div class="rule"></div><p>Asesoría, atención rápida y eficiente, precios competitivos y entrega puntual.</p></div>
+<div class="split"><div class="photo"><img alt="Atención al cliente MelaFlash" loading="lazy" src="oficina.png"/></div><div class="copy"><h2 style="color:#fff">Tu proyecto, <span style="color:var(--o)">bien atendido</span></h2><p style="color:#b8bdc0">Trabajamos para que tengas una experiencia directa, clara y personalizada durante tu pedido.</p>
+<div class="service-grid" style="margin-top:18px"><div class="service"><span>✓</span>Asesoría personalizada</div><div class="service"><span>✓</span>Atención rápida</div><div class="service"><span>✓</span>Precios competitivos</div><div class="service"><span>✓</span>Entrega puntual</div></div></div></div>
+</div></section>
+<section class="section" id="cotiza">
+<div class="container">
+<div class="head">
+<h2>Cotiza aquí</h2>
+<div class="rule"></div>
+<p>Envíanos una foto o archivo de referencia y cuéntanos qué necesitas.</p>
+</div>
+<div class="quote-wrap">
+<button aria-controls="quotePanel" aria-expanded="false" class="btn primary quote-toggle" id="quoteToggle" type="button">Cotiza aquí <span aria-hidden="true">⌄</span></button>
+<div class="quote-panel" id="quotePanel">
+<form class="quote-form" id="quoteForm">
+<div class="quote-grid">
+<div class="quote-field">
+<label for="quoteName">Nombre</label>
+<input autocomplete="name" id="quoteName" name="nombre" placeholder="Tu nombre" type="text"/>
+</div>
+<div class="quote-field">
+<label for="quotePhone">Teléfono (opcional)</label>
+<input id="quotePhone" name="telefono" placeholder="Tu número" type="tel"/>
+</div>
+<div class="quote-field full">
+<label for="quoteFile">Foto o cotización</label>
+<input accept="image/jpeg,image/png,image/webp,application/pdf" class="quote-file" id="quoteFile" name="archivo" type="file"/>
+<div class="quote-help">Puedes subir JPG, PNG, WEBP o PDF. Máximo 10 MB.</div>
+</div>
+<div class="quote-field full">
+<label for="quoteDescription">¿Qué necesitas?</label>
+<textarea id="quoteDescription" name="descripcion" placeholder="Describe brevemente tu proyecto, medidas, cantidad o lo que deseas cotizar."></textarea>
+</div>
+</div>
+<div class="quote-actions">
+<button class="btn primary" type="submit">Enviar por WhatsApp</button>
+<span class="quote-status" id="quoteStatus"></span>
+</div>
+<p class="quote-note">Al enviar, se abrirá WhatsApp para continuar la atención. En celulares compatibles, el archivo seleccionado se adjuntará desde el menú de compartir.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+<section class="section alt" id="cotiza">
+<div class="container"><div class="head"><h2>¿Tienes un proyecto?</h2><div class="rule"></div><p>Déjanos los datos básicos y continúa la conversación directamente por WhatsApp.</p>
+<button class="btn primary quote-toggle" id="quoteToggle" type="button">Cotiza aquí <span class="chev">⌄</span></button></div>
+<div id="cotiza-panel"><div class="quote-shell"><form id="quoteForm"><div class="quote-grid">
+<div class="quote-field"><label>Nombre</label><input id="qName" placeholder="Tu nombre" required="" type="text"/></div>
+<div class="quote-field"><label>Teléfono</label><input id="qPhone" placeholder="Tu número" type="tel"/></div>
+<div class="quote-field full"><label>Foto o cotización</label><label class="file-drop"><input accept="image/*,.pdf" id="qFile" type="file"/><strong>📎 Seleccionar archivo</strong><div class="file-name" id="fileName">Puedes adjuntar JPG, PNG, WEBP o PDF.</div></label></div>
+<div class="quote-field full"><label>¿Qué necesitas?</label><textarea id="qDesc" placeholder="Indica medidas, cantidad, material, color o cualquier detalle importante..." required=""></textarea></div>
+</div><div class="quote-actions"><button class="btn primary" type="submit">🟢 Enviar por WhatsApp</button><div class="quote-note">Al enviar, se abrirá WhatsApp con tu solicitud preparada. Si adjuntaste una foto o PDF, podrás agregarlo en el chat.</div></div></form></div></div></div>
+</section><section class="section alt" id="contacto"><div class="container"><div class="head"><h2>Contáctanos</h2><div class="rule"></div><p>Cotiza por WhatsApp o visítanos en Villa El Salvador.</p></div>
+<div class="contact">
+<div class="contact-box orange"><h3>WhatsApp / teléfono</h3><div class="big">913 499 678</div><p>Atención directa para cotizaciones y consultas.</p><div style="margin-top:20px"><a class="btn wa-btn" href="https://wa.me/51913499678?text=Hola%20MelaFlash,%20quiero%20cotizar." rel="noopener" target="_blank">Abrir WhatsApp</a></div></div>
+<div class="contact-box"><h3>Ubicación</h3><div class="big" style="font-size:24px">Villa El Salvador</div><p>Mz. F, Lote 2, Asoc. Hoyada Alta Parcela 3A<br/>Villa El Salvador, Lima, Perú</p><div style="margin-top:20px"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Mz.%20F%2C%20Lote%202%2C%20Asoc.%20Hoyada%20Alta%20Parcela%203A%2C%20Villa%20El%20Salvador%2C%20Lima%2C%20Per%C3%BA" rel="noopener" style="background:var(--o);color:#fff;border:2px solid var(--o);" target="_blank"><span aria-hidden="true">⌖</span> Ver ubicación en Google Maps</a></div></div>
+</div></div></section>
+<section class="section job" id="empleo"><div class="container"><div class="head"><h2>Oportunidad laboral</h2><div class="rule"></div><p>La convocatoria de cubicador queda al final de la página, como publicación de trabajo.</p></div>
+<div class="job-grid"><div class="job-img"><img alt="Se necesita cubicador - MelaFlash" loading="lazy" src="empleo.jpg"/></div>
+<div class="job-copy"><h2>Se necesita <span>cubicador</span></h2><p>Control de calidad y conteo de piezas para el área de cubicación de muebles de melamina.</p>
+<ul><li>Con o sin experiencia como cubicador en melamina.</li><li>Conocimiento de medidas de piso y optimización de materiales.</li><li>De preferencia, manejo de control de calidad.</li><li>Responsable, puntual y con buena actitud.</li><li>Capacidad de trabajar en equipo.</li></ul>
+<div class="salary">S/ 300 a S/ 450</div><div style="font-size:12px;color:var(--m);margin-bottom:15px">Pago semanal · Según experiencia · Horario a tratar</div>
+<a class="btn primary" href="https://wa.me/51981639388?text=Hola,%20estoy%20interesado%20en%20la%20vacante%20de%20cubicador." rel="noopener" target="_blank">Postular · 981 639 388</a></div></div></div></section>
+<footer><div class="container footer"><div><strong>MelaFlash</strong> · Multipacas Ecológicas E.I.R.L.</div><div>913 499 678 · Villa El Salvador</div></div></footer>
+<a aria-label="WhatsApp" class="float" href="https://wa.me/51913499678?text=Hola%20MelaFlash,%20quiero%20cotizar." target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.52 0 .2 5.32.2 11.87c0 2.09.55 4.13 1.59 5.92L.1 24l6.36-1.67a11.85 11.85 0 0 0 5.61 1.42h.01c6.55 0 11.87-5.32 11.87-11.87 0-3.17-1.24-6.15-3.43-8.4ZM12.08 21.73h-.01a9.82 9.82 0 0 1-5.01-1.37l-.36-.21-3.77.99 1.01-3.68-.23-.38a9.82 9.82 0 1 1 8.37 4.65Zm5.39-7.37c-.29-.15-1.72-.85-1.99-.94-.27-.1-.47-.15-.67.15-.2.29-.76.94-.93 1.13-.17.2-.34.22-.63.07-.29-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.03 1.01-1.03 2.46s1.06 2.86 1.2 3.05c.15.2 2.08 3.18 5.03 4.46.7.3 1.25.48 1.68.62.71.23 1.36.2 1.87.12.57-.09 1.72-.7 1.96-1.37.24-.67.24-1.25.17-1.37-.07-.12-.27-.2-.56-.34Z" fill="currentColor"></path></svg></a>
+<div aria-hidden="true" id="imgModal">
+<div class="modal-inner">
+<button aria-label="Cerrar" class="close" type="button">×</button>
+<img alt="" loading="lazy" src=""/>
+</div>
+<div class="hint">Haz clic fuera de la imagen o presiona Esc para cerrar</div>
+</div>
+<script>
+(function(){
+  const modal = document.getElementById('imgModal');
+  const modalImg = modal.querySelector('img');
+  const closeBtn = modal.querySelector('.close');
+
+  document.querySelectorAll('img.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      modalImg.src = img.dataset.full || img.src;
+      modalImg.alt = img.alt || '';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    });
+  });
+
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    modalImg.src='';
+    document.body.style.overflow='';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+})();
+</script>
+<script>
+(function(){
+  const toggle=document.getElementById('quoteToggle');
+  const panel=document.getElementById('quotePanel');
+  const form=document.getElementById('quoteForm');
+  const status=document.getElementById('quoteStatus');
+  if(!toggle||!panel||!form) return;
+  toggle.addEventListener('click',function(){
+    const open=panel.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',String(open));
+    if(open) setTimeout(()=>document.getElementById('quoteName')?.focus(),80);
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    status.textContent='';
+    const name=document.getElementById('quoteName').value.trim();
+    const phone=document.getElementById('quotePhone').value.trim();
+    const desc=document.getElementById('quoteDescription').value.trim();
+    const fileInput=document.getElementById('quoteFile');
+    const file=fileInput.files[0];
+    if(!desc && !file){
+      status.textContent='Agrega una descripción o una foto/archivo.';
+      return;
+    }
+    if(file && file.size>10*1024*1024){
+      status.textContent='El archivo supera los 10 MB.';
+      return;
+    }
+    const lines=['Hola MelaFlash, quiero solicitar una cotización.'];
+    if(name) lines.push('Nombre: '+name);
+    if(phone) lines.push('Teléfono: '+phone);
+    if(desc) lines.push('Detalle: '+desc);
+    if(file) lines.push('Archivo: '+file.name+' (lo adjuntaré en WhatsApp)');
+    const text=lines.join('\n');
+    const wa='https://wa.me/51913499678?text='+encodeURIComponent(text);
+    status.textContent=file ? 'Abriendo WhatsApp… Luego adjunta el archivo seleccionado.' : 'Abriendo WhatsApp…';
+    // Navegación directa: evita bloqueos de ventanas emergentes y abre la app de WhatsApp en móviles.
+    window.location.href=wa;
+  });
+})();
+</script>
+<a aria-label="WhatsApp MelaFlash" class="whatsapp-float" href="https://wa.me/51913499678?text=Hola%20MelaFlash,%20quiero%20cotizar." rel="noopener" target="_blank" title="Escribir por WhatsApp">◔</a><script>
+const qt=document.getElementById('quoteToggle'), panel=document.getElementById('cotiza-panel');
+qt?.addEventListener('click',()=>{const open=panel.classList.toggle('open');qt.classList.toggle('active',open);if(open)setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'center'}),80)});
+const file=document.getElementById('qFile'), fn=document.getElementById('fileName');file?.addEventListener('change',()=>{fn.textContent=file.files[0]?file.files[0].name:'Puedes adjuntar JPG, PNG, WEBP o PDF.'});
+document.getElementById('quoteForm')?.addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('qName').value.trim();const phone=document.getElementById('qPhone').value.trim();const desc=document.getElementById('qDesc').value.trim();const f=file?.files?.[0]?.name||'';let msg=`Hola MelaFlash, quiero cotizar.%0A%0A👤 Nombre: ${encodeURIComponent(name)}%0A📞 Teléfono: ${encodeURIComponent(phone||'No indicado')}%0A📝 Solicitud: ${encodeURIComponent(desc)}`;if(f)msg+=`%0A📎 Archivo: ${encodeURIComponent(f)}%0A%0AAdjuntaré el archivo en este chat.`;window.location.href='https://wa.me/51913499678?text='+msg});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.card,.q,.step,.service,.contact-box,.photo,.head').forEach(el=>{el.classList.add('reveal');io.observe(el)});
+</script></body></html>
